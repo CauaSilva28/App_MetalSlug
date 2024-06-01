@@ -15,4 +15,4 @@ O projeto mostrá o protótipo e um aplicativo mobile para o jogo Metal Slug, de
 [Telas e widgets](https://github.com/CauaSilva28/PrototipoDeAplicativoJogo/wiki/Telas-e-widgets-utilizados)
 
 ### Links sobre a aplicação
-[Descrição do desenvolvimento do aplicativo](https://github.com/CauaSilva28/App_MetalSlug/wiki/Descri%C3%A7%C3%A3o-do-desenvolvimento-do-aplicativo)
+[Descrição do desenvolvimento do aplicativo](https://github.com/CauaSilva28/App_MetalSlug/wiki/Aplicativo)
