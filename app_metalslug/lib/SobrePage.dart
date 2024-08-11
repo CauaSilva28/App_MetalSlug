@@ -1,48 +1,144 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SobrePage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+    Widget build(BuildContext context) {
     return SafeArea(
       bottom: false,
       child: SingleChildScrollView(
         child: Center(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 20),
-              Text(
-                'Sobre',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 240, 176, 0),
+              Image(
+                image: NetworkImage('img/tituloHome.png'),
+                height:80,
+                fit: BoxFit.contain,
+              ),
+              SizedBox(height: 40),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [ 
+                    Image(
+                      image: NetworkImage('img/imgsobre.png'),
+                      height: 235,
+                      width: 235,
+                      fit: BoxFit.contain,
+                    ),
+                    
+                    SizedBox(width: 5), // Espaçamento entre a imagem e o texto
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        padding: EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(129, 0, 0, 0),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Metal Slug é uma série de jogos de tiro estilo plataforma (Shoot em up) desenvolvido pela SNK, inicialmente lançados para arcade. Os jogos da série geralmente lidam com a luta contra o exército do general Morden e também contra extraterrestres.',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(height: 20),
-              Image(
-                image: NetworkImage('img/imgsobre.png'),
-                height: 320,
-                width: 320,
-              ),
-              SizedBox(height: 10),
+
               Container(
-                width: 350,
-                height: 270,
-                padding: EdgeInsets.all(20),
+                margin:EdgeInsets.all(30),
+                padding: EdgeInsets.all(15),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(146, 0, 0, 0),
+                  color: Color.fromARGB(129, 0, 0, 0),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: Text(
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
+                child: Center(
+                  child: Text(
+                    'O aplicativo falará em específico sobre o jogo Metal Slug: Super Vehicle-001, explorando detalhadamente seus elementos icônicos, como a jogabilidade dinâmica, os personagens carismáticos, e os desafiadores níveis que marcaram uma geração.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
+              
+              Image(
+                image: NetworkImage('img/imgsobre_metal1.jpg'),
+                width: 400,
+                fit: BoxFit.contain,
+              ),
+
+              Container(
+                margin:EdgeInsets.all(30),
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(129, 0, 0, 0),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Center(
+                  child: Text(
+                    'Metal Slug: Super Vehicle 001 é um jogo do gênero Run N Gun, lançado, originalmente, no ano de 1996 para Arcade (MVS System), sendo desenvolvido pela Nazca Corporation e publicado pela SNK. O jogo é amplamente conhecido por seu senso de humor, animação desenhada à mão extremamente fluida e ação rápida para dois jogadores. É o primeiro título dasérie Metal Slug.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+
+              Container(
+                margin:EdgeInsets.fromLTRB(30,0,30,30),
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(129, 0, 0, 0),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Center(
+                  child: Text(
+                    'O jogador tem que atirar constantemente em um fluxo contínuo de inimigos para chegar ao fim de uma missão. No final de cada missão, o jogador deve confrontar um chefe que geralmente é consideravelmente maior do que os inimigos normais e leva vários tiros para derrotar. No caminho pela missão, o jogador encontra atualizações de armas e SV-001s para poder de fogo e defesa adicionais.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image(
+                        image: NetworkImage('img/imgsobre_metal2.png'),
+                        width: 230,
+                        fit: BoxFit.contain,
+                      ),
+                    
+                    SizedBox(width: 10),
+
+                    Image(
+                        image: NetworkImage('img/imgsobre_metal3.png'),
+                        width: 230,
+                        fit: BoxFit.contain,
+                      ),                   
+                  ]
+                ),
+              ),
+
               SizedBox(height: 100),
             ],
           ),

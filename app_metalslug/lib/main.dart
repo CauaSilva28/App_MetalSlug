@@ -78,20 +78,24 @@ class _MyAppState extends State<MyApp> {
                     padding: EdgeInsets.all(8),
                     tabs: [
                       GButton(
-                        icon: Icons.book,
-                        text: 'Sobre',
+                        icon: Icons.home,
+                        text: 'Home',
                       ),
                       GButton(
                         icon: Icons.person_4_sharp,
                         text: 'Personagens',
                       ),
                       GButton(
-                        icon: Icons.bookmark,
-                        text: 'Poderes',
+                        icon: Icons.flash_on_sharp,
+                        text: 'Armas',
                       ),
                       GButton(
-                        icon: Icons.question_answer,
-                        text: 'Dicas',
+                        icon: Icons.person_3,
+                        text: 'Inimigos',
+                      ),
+                      GButton(
+                        icon: Icons.wysiwyg_rounded,
+                        text: 'Fases',
                       ),
                     ],
                   ),

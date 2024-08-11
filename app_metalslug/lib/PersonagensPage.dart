@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'Personagem.dart';
 
 class PersonagensPage extends StatefulWidget {
   @override
@@ -9,14 +10,20 @@ class PersonagensPage extends StatefulWidget {
 class _PersonagensPageState extends State<PersonagensPage> {
   int _currentImageIndex = 0;
 
-  final List<String> _images = [
-    'img/imgperso.png',
-    'img/imgpersoman.png',
-  ];
-
-  final List<String> _texts = [
-    'Eri Kasamoto',
-    'Marco Rossi',
+  // Lista de personagens
+  final List<Personagem> _personagens = [
+    Personagem(
+      nome: 'MarcoRossi',
+      imagem: 'img/marcoPrincipal.png',
+      descricao: 'Marco Rossi é o personagem principal de Metal Slug: Super Vehicle-001. Como líder do esquadrão Peregrine Falcon, Marco é conhecido por sua coragem e habilidades de combate excepcionais. Com seu icônico uniforme militar e bandana, ele enfrenta as forças do General Morden com determinação, utilizando uma variedade de armas e veículos, incluindo o lendário tanque Metal Slug. Marco é um herói clássico dos jogos de ação, representando o espírito indomável dos soldados na luta pela liberdade e pela justiça.',
+      detalhesImagem: 'img/marcoRossi.gif',
+    ),
+    Personagem(
+      nome: 'Tarma Roving',
+      imagem: 'img/tarmaPrincipal.png',
+      descricao: 'Companheiro de Marco Rossi, Tarma é um especialista em armas e explosivos, trazendo um estilo de combate explosivo e preciso para a equipe. Seu uniforme de combate e seu distintivo capacete o tornam um ícone reconhecível. Com habilidades notáveis em manuseio de armamentos e veículos pesados, Tarma complementa perfeitamente a equipe com sua experiência e destreza em batalhas intensas. Juntos, Marco e Tarma enfrentam os desafios mais implacáveis para garantir a vitória e a paz.',
+      detalhesImagem: 'img/tarma.gif',
+    ),
   ];
 
   @override
@@ -29,13 +36,10 @@ class _PersonagensPageState extends State<PersonagensPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 20),
-              Text(
-                'Personagens',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 240, 176, 0),
-                ),
+              Image(
+                image: NetworkImage('img/tituloPersonagem.png'),
+                height:80,
+                fit: BoxFit.contain,
               ),
               SizedBox(height: 20),
               CarouselSlider(
@@ -46,7 +50,7 @@ class _PersonagensPageState extends State<PersonagensPage> {
                   aspectRatio: 16 / 9,
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enableInfiniteScroll: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  autoPlayAnimationDuration: Duration(milliseconds: 2000),
                   viewportFraction: 0.8,
                   onPageChanged: (index, reason) {
                     setState(() {
@@ -54,29 +58,23 @@ class _PersonagensPageState extends State<PersonagensPage> {
                     });
                   },
                 ),
-                items: _images.asMap().entries.map((entry) {
-                  int index = entry.key;
-                  String imagePath = entry.value;
+                items: _personagens.asMap().entries.map((entry) {
+                  Personagem personagem = entry.value;
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            if (index == 0) {
-                              return DetalhesPersonagem1Page();
-                            } else {
-                              return DetalhesPersonagem2Page();
-                            }
+                              return DetalhesPersonagemPage(personagem: personagem);
                           },
                         ),
                       );
                     },
                     child: Image.network(
-                      imagePath,
+                      personagem.imagem,
                       fit: BoxFit.cover,
-                      height: 400,
-                      width: 400,
+                      height: 250,
                     ),
                   );
                 }).toList(),
@@ -85,7 +83,7 @@ class _PersonagensPageState extends State<PersonagensPage> {
               Container(
                 width: 350,
                 child: Text(
-                  _texts[_currentImageIndex],
+                  _personagens[_currentImageIndex].nome,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 45,
@@ -103,94 +101,26 @@ class _PersonagensPageState extends State<PersonagensPage> {
   }
 }
 
-class DetalhesPersonagem1Page extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Eri Kasamoto',
-          style: TextStyle(
-            color: Color.fromARGB(255, 240, 176, 0), // Cor do texto do título
-          ),
-        ),
-        backgroundColor: Colors.black,
-      ),
-      body: Stack(
-        children: [
-          // Container com a imagem de fundo
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage('img/fundo.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          // Conteúdo da página
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 20),
-                Image(
-                  image: NetworkImage('img/imgperso2.png'),
-                  height: 250,
-                  width: 250,
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Eri Kasamoto',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Container(
-                  width: 400,
-                  height: 200,
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(146, 0, 0, 0),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Text(
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+class DetalhesPersonagemPage extends StatelessWidget {
+  final Personagem personagem;
 
-class DetalhesPersonagem2Page extends StatelessWidget {
+  DetalhesPersonagemPage({required this.personagem});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Marco Rossi',
+          personagem.nome,
           style: TextStyle(
-            color: Color.fromARGB(255, 240, 176, 0), // Cor do texto do título
+            color: Color.fromARGB(255, 179, 2, 2),
+            fontWeight: FontWeight.bold,
           ),
         ),
         backgroundColor: Colors.black,
       ),
       body: Stack(
         children: [
-          // Container com a imagem de fundo
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -199,7 +129,6 @@ class DetalhesPersonagem2Page extends StatelessWidget {
               ),
             ),
           ),
-          // Conteúdo da página
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -207,13 +136,13 @@ class DetalhesPersonagem2Page extends StatelessWidget {
               children: [
                 SizedBox(height: 20),
                 Image(
-                  image: NetworkImage('img/imgpersoman2.png'),
+                  image: NetworkImage(personagem.detalhesImagem),
                   height: 250,
                   width: 250,
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Marco Rossi',
+                  personagem.nome,
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -222,15 +151,14 @@ class DetalhesPersonagem2Page extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                  width: 400,
-                  height: 200,
+                  width: 450,
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: Color.fromARGB(146, 0, 0, 0),
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Text(
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing',
+                    personagem.descricao,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 13,

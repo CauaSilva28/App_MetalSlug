@@ -11,13 +11,10 @@ class PoderesPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 20),
-              Text(
-                'Poderes',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 240, 176, 0),
-                ),
+              Image(
+                image: NetworkImage('img/tituloPoderes.png'),
+                height:80,
+                fit: BoxFit.contain,
               ),
               SizedBox(height: 0),
               Image(
