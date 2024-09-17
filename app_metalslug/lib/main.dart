@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'SobrePage.dart';
 import 'PersonagensPage.dart';
 import 'PoderesPage.dart';
-import 'DicasPage.dart';
+import 'InimigosPage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 void main() {
@@ -30,9 +30,9 @@ class _MyAppState extends State<MyApp> {
       case 1:
         return PersonagensPage();
       case 2:
-        return PoderesPage();
+        return InimigosPage();
       case 3:
-        return DicasPage();
+        return PoderesPage();
       default:
         return Container(); // Página vazia por padrão
     }
@@ -86,12 +86,12 @@ class _MyAppState extends State<MyApp> {
                         text: 'Personagens',
                       ),
                       GButton(
-                        icon: Icons.flash_on_sharp,
-                        text: 'Armas',
-                      ),
-                      GButton(
                         icon: Icons.person_3,
                         text: 'Inimigos',
+                      ),
+                      GButton(
+                        icon: Icons.flash_on_sharp,
+                        text: 'Armas',
                       ),
                       GButton(
                         icon: Icons.wysiwyg_rounded,
