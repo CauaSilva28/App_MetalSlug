@@ -3,6 +3,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'Personagem.dart';
 
 class InimigosPage extends StatefulWidget {
+  const InimigosPage({super.key});
+
   @override
   InimigosPageState createState() => InimigosPageState();
 }
@@ -65,22 +67,22 @@ class InimigosPageState extends State<InimigosPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
-              Image(
+              const SizedBox(height: 20),
+              const Image(
                 image: AssetImage('img/tituloInimigos.png'),
                 height:80,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 100),
               CarouselSlider(
                 options: CarouselOptions(
-                  height: 300.0,
+                  height: 350.0,
                   enlargeCenterPage: true,
                   autoPlay: true,
                   aspectRatio: 16 / 9,
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enableInfiniteScroll: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 2000),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 2000),
                   viewportFraction: 0.8,
                   onPageChanged: (index, reason) {
                     setState(() {
@@ -110,20 +112,20 @@ class InimigosPageState extends State<InimigosPage> {
                   );
                 }).toList(),
               ),
-              SizedBox(height: 50),
-              Container(
+              const SizedBox(height: 100),
+              SizedBox(
                 width: 350,
                 child: Text(
                   inimigo[_currentImageIndex].nome,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 45,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
             ],
           ),
         ),
@@ -135,7 +137,7 @@ class InimigosPageState extends State<InimigosPage> {
 class DetalhesInimigoPage extends StatelessWidget {
   final Personagem inimigo;
 
-  DetalhesInimigoPage({required this.inimigo});
+  const DetalhesInimigoPage({super.key, required this.inimigo});
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +145,7 @@ class DetalhesInimigoPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           inimigo.nome,
-          style: TextStyle(
+          style: const TextStyle(
             color: Color.fromARGB(255, 179, 2, 2),
             fontWeight: FontWeight.bold,
           ),
@@ -153,7 +155,7 @@ class DetalhesInimigoPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('img/fundo.jpg'),
                 fit: BoxFit.cover,
@@ -166,39 +168,39 @@ class DetalhesInimigoPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 50),
+                  const SizedBox(height: 100),
                   Image(
                     image: AssetImage(inimigo.detalhesImagem),
                     fit: BoxFit.fill,
                     height: 200,
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 40),
                   Text(
                     inimigo.nome,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 40),
                   Container(
                     width: 450,
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(146, 0, 0, 0),
+                      color: const Color.fromARGB(146, 0, 0, 0),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Text(
                       inimigo.descricao,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Colors.white,
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

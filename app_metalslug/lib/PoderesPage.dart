@@ -29,6 +29,8 @@ final List<Poder> poder = [
 ];
 
 class PoderesPage extends StatelessWidget {
+  const PoderesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,57 +41,57 @@ class PoderesPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
-              Image(
+              const SizedBox(height: 20),
+              const Image(
                 image: AssetImage('img/tituloPoderes.png'),
                 height:80,
                 fit: BoxFit.contain,
               ),
 
               Column(         
-                children: poder.map((_poder) {
+                children: poder.map((poder) {
                   return Column(
                     children: [
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Text(
-                        _poder.nome,
-                        style: TextStyle(
+                        poder.nome,
+                        style: const TextStyle(
                           fontSize: 35,
                           fontWeight:FontWeight.w900, 
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Image(
-                        image: AssetImage(_poder.imgIcone),
+                        image: AssetImage(poder.imgIcone),
                         fit: BoxFit.cover,
                         height: 200,
                         width: 200,
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Container(
                         width: 400,
-                        padding: EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(146, 0, 0, 0),
+                          color: const Color.fromARGB(146, 0, 0, 0),
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Text(
-                          _poder.descricao,
+                          poder.descricao,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 15,
                             color: Colors.white,
                           ),
                         ),
                       ),
-                      SizedBox(height: 80),
+                      const SizedBox(height: 80),
                       Image(
-                        image: AssetImage(_poder.imgArma),
+                        image: AssetImage(poder.imgArma),
                         fit: BoxFit.cover,
                         width:400,
                       ),
-                      SizedBox(height: 100),
+                      const SizedBox(height: 100),
                     ],
                   );
                 }).toList(),
