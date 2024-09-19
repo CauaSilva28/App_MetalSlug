@@ -3,12 +3,9 @@ import 'Fase.dart';
 
 final List<Fase> fase = [
   Fase(
-    nome:'Floresta Absolutamente Densa',
+    nome:'',
     objetivo: '',
-    descricaoPtInicial: '',
-    descricaoPtFinal: '',
-    imgParteInicial: '',
-    imgParteFinal: '', 
+    img: '',
   ),
 ];
 
@@ -36,8 +33,6 @@ class Fasespage extends StatelessWidget {
                   return Column(
                     children: [
 
-                      const SizedBox(height: 30),
-
                       Text(
                         _fase.nome,
                         style: const TextStyle(
@@ -47,15 +42,13 @@ class Fasespage extends StatelessWidget {
                         ),
                       ),
 
-                      const SizedBox(height:50),
-
                       // MISSION 1
 
                       const Image(
                         image: AssetImage('img/fases/mission1.jpg'),
                         fit: BoxFit.cover,
-                        height: 100,
-                        width: 100,
+                        height: 200,
+                        width: 400,
                       ),
 
                       const SizedBox(height:20),
@@ -96,8 +89,8 @@ class Fasespage extends StatelessWidget {
                       const Image(
                         image: AssetImage("img/fases/mission2.jpg"),
                         fit: BoxFit.cover,
-                        height: 100,
-                        width: 100,
+                        height: 200,
+                        width: 400,
                       ),
 
                       const SizedBox(height:20),
@@ -135,10 +128,10 @@ class Fasespage extends StatelessWidget {
 
                       // MISSION 3
                       const Image(
-                        image: AssetImage("img/fases/mission2.jpg"),
+                        image: AssetImage("img/fases/mission3.jpg"),
                         fit: BoxFit.cover,
-                        height: 100,
-                        width: 100,
+                        height: 200,
+                        width: 400,
                       ),
 
                       const SizedBox(height:20),
@@ -178,8 +171,8 @@ class Fasespage extends StatelessWidget {
                        const Image(
                         image: AssetImage("img/fases/mission4.png"),
                         fit: BoxFit.cover,
-                        height: 100,
-                        width: 100,
+                        height: 200,
+                        width: 400,
                       ),
 
                       const SizedBox(height:20),
@@ -220,8 +213,8 @@ class Fasespage extends StatelessWidget {
                        const Image(
                         image: AssetImage("img/fases/mission5.png"),
                         fit: BoxFit.cover,
-                        height: 100,
-                        width: 100,
+                        height: 200,
+                        width: 400,
                       ),
 
                       const SizedBox(height:20),
