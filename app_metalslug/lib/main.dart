@@ -68,7 +68,8 @@ class _MyAppState extends State<MyApp> {
               child: Container(
                 color: Colors.black.withOpacity(0.8),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
                   child: GNav(
                     backgroundColor: Colors.transparent,
                     color: const Color.fromARGB(255, 179, 2, 2),
