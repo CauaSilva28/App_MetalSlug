@@ -12,7 +12,7 @@ class SobrePage extends StatelessWidget {
             children: [
               SizedBox(height: 20),
               Image(
-                image: NetworkImage('img/tituloHome.png'),
+                image: AssetImage('img/tituloHome.png'),
                 height:80,
                 fit: BoxFit.contain,
               ),
@@ -23,7 +23,7 @@ class SobrePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [ 
                     Image(
-                      image: NetworkImage('img/imgsobre.png'),
+                      image: AssetImage('img/imgsobre.png'),
                       height: 235,
                       width: 235,
                       fit: BoxFit.contain,
@@ -74,7 +74,7 @@ class SobrePage extends StatelessWidget {
               ),
               
               Image(
-                image: NetworkImage('img/imgsobre_metal1.jpg'),
+                image: AssetImage('img/imgsobre_metal1.jpg'),
                 width: 400,
                 fit: BoxFit.contain,
               ),
@@ -123,7 +123,7 @@ class SobrePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image(
-                        image: NetworkImage('img/imgsobre_metal2.png'),
+                        image: AssetImage('img/imgsobre_metal2.png'),
                         width: 230,
                         fit: BoxFit.contain,
                       ),
@@ -131,7 +131,7 @@ class SobrePage extends StatelessWidget {
                     SizedBox(width: 10),
 
                     Image(
-                        image: NetworkImage('img/imgsobre_metal3.png'),
+                        image: AssetImage('img/imgsobre_metal3.png'),
                         width: 230,
                         fit: BoxFit.contain,
                       ),                   

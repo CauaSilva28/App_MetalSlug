@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage('img/fundo.jpg'),
+                  image: AssetImage('img/fundo.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),

@@ -57,3 +57,6 @@ flutter:
   uses-material-design: true
   assets:
     - img/
+    - img/personagens/
+    - img/inimigos/
+    - img/armas/

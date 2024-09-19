@@ -1,4 +1,32 @@
 import 'package:flutter/material.dart';
+import 'Poder.dart';
+
+final List<Poder> poder = [
+  Poder(
+    nome: 'Heavy Machine Gun',
+    descricao: 'A Heavy Machine Gun ( HMG ) é a principal arma especial do jogo. Essas caixas são fáceis de encontrar, e os cartuchos FMJ de 7,62 mm nelas se encaixam na maioria das armas automáticas utilizadas no campo de batalha. Ela tem o mesmo poder de fogo de uma arma de mão comum, mas sua alta taxa de tiro compensa, tornando essa arma uma das mais mortais de todas.',
+    imgIcone: 'img/armas/arma1.png',
+    imgArma: 'img/armas/arma1gif.gif',
+  ),
+  Poder(
+    nome: 'Flame Shot',
+    descricao: 'O Flame Shot é uma arma secundária no jogo. Ela é eficaz contra infantaria e veículos levemente blindados a curta distância. Um tiro é o suficiente para queimar vários soldados, e alguns são o suficiente para derreter veículos com facilidade.',
+    imgIcone: 'img/armas/arma2.png',
+    imgArma: 'img/armas/arma2gif.gif',
+  ),
+  Poder(
+    nome: 'Rocket Launcher',
+    descricao: 'O Rocket Launcher é uma arma especial do jogo. Embora não sejam capazes de fornecer poder de penetração suficiente para derrotar blindagem pesada, esses foguetes são altamente explosivos e muito eficazes contra massas de infantaria. Os foguetes miram parcialmente nos inimigos mais próximos e então explodem no contato. O Big Rocket Launcher dispara foguetes maiores que causam mais dano.',
+    imgIcone: 'img/armas/arma3.png',
+    imgArma: 'img/armas/arma3gif.gif',
+  ),
+  Poder(
+    nome: 'Shotgun',
+    descricao: 'A Shotgun é uma arma secundária no jogo. Os cartuchos calibre 12 cheios de pelotas metálicas BB são altamente eficazes à queima-roupa, embora os BBs percam sua velocidade após percorrer uma curta distância e se tornem inofensivos depois de um tempo. Apesar de sua munição limitada, é muito poderoso, capaz de obliterar hordas de infantaria com um único tiro e até mesmo destruir veículos facilmente com apenas alguns.',
+    imgIcone: 'img/armas/arma4.png',
+    imgArma: 'img/armas/arma4gif.gif',
+  ),
+];
 
 class PoderesPage extends StatelessWidget {
   @override
@@ -8,39 +36,64 @@ class PoderesPage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 20),
               Image(
-                image: NetworkImage('img/tituloPoderes.png'),
+                image: AssetImage('img/tituloPoderes.png'),
                 height:80,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: 0),
-              Image(
-                image: NetworkImage('img/imgpoder.png'),
-                height: 320,
-                width: 320,
+
+              Column(         
+                children: poder.map((_poder) {
+                  return Column(
+                    children: [
+                      SizedBox(height: 30),
+                      Text(
+                        _poder.nome,
+                        style: TextStyle(
+                          fontSize: 35,
+                          fontWeight:FontWeight.w900, 
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      Image(
+                        image: AssetImage(_poder.imgIcone),
+                        fit: BoxFit.cover,
+                        height: 200,
+                        width: 200,
+                      ),
+                      SizedBox(height: 30),
+                      Container(
+                        width: 400,
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(146, 0, 0, 0),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Text(
+                          _poder.descricao,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 80),
+                      Image(
+                        image: AssetImage(_poder.imgArma),
+                        fit: BoxFit.cover,
+                        width:400,
+                      ),
+                      SizedBox(height: 100),
+                    ],
+                  );
+                }).toList(),
               ),
-              SizedBox(height: 0),
-              Container(
-                width: 350,
-                height: 270,
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(146, 0, 0, 0),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Text(
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              SizedBox(height: 100),
             ],
           ),
         ),

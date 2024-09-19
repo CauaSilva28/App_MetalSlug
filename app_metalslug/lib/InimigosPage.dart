@@ -33,25 +33,25 @@ class InimigosPageState extends State<InimigosPage> {
     Personagem(
       nome: 'Tani Oh',
       imagem: 'img/inimigos/taniPrincipal.jpg',
-      descricao: '',
+      descricao: 'Tani Oh é um protótipo de tanque de artilharia pesada armado com um poderoso canhão de cano duplo capaz de devastar grandes áreas sem muito esforço; esses canhões duplos são possivelmente um canhão elétrico experimental, já que seus tiros são raios leves instantâneos e a torre, em vez de ejetar os invólucros expandidos, descarrega fumaça e calor das aberturas em sua parte traseira. Ele também é equipado com duas torres de cada lado, ambas com uma minigun e um lançador de minas, para cobrir o tanque em curto alcance. Ele é o chefe da missão 3 do jogo',
       detalhesImagem: 'img/inimigos/taniGif.gif',
     ),
     Personagem(
       nome: 'Shoe & Karn',
       imagem: 'img/inimigos/shoePrincipal.jpg',
-      descricao: '',
+      descricao: 'Shoe & Karn são um par de tanques superpesados ​​criados pelo Exército Rebelde para missões cooperativas. Cada um deles é armado com um canhão montado na torre principal, duas torres de sub-canhão na frente e um lançador de mísseis na parte traseira. Duas escotilhas montadas nas laterais permitem que os soldados ajudem a defender o tanque também, geralmente com bazucas ou lançadores de foguetes. Ele é o chefe da missão 4 do jogo',
       detalhesImagem: 'img/inimigos/shoeGif.gif',
     ),
     Personagem(
       nome: 'Iron Nokana',
       imagem: 'img/inimigos/ironPrincipal.jpg',
-      descricao: '',
+      descricao: 'O Iron Nokana é um grande veículo de combate blindado multiuso criado pelo Exército Rebelde . Seu poder de fogo é concentrado na frente, com uma torre de canhão e lançador de mísseis na parte superior e um lança-chamas escondido na parte inferior. Para compensar a falta de poder de fogo na parte traseira, um Girida-O é montado em suas costas. Ele é o chefe da missão 5 do jogo',
       detalhesImagem: 'img/inimigos/ironGif.gif',
     ),
     Personagem(
       nome: 'Hi-Do',
       imagem: 'img/inimigos/hiPrincipal.jpg',
-      descricao: '',
+      descricao: 'O Hi-Do é um helicóptero de rotor duplo usado por Donald Morden , que também é usado para transportar VIPs. Projetado para fins de teste, ele tem blindagem pesada e é equipado com várias armas, tornando-o uma embarcação de combate versátil. Ele é o chefe da missão final do jogo',
       detalhesImagem: 'img/inimigos/hiGif.gif',
     ),
   ];
@@ -67,14 +67,14 @@ class InimigosPageState extends State<InimigosPage> {
             children: [
               SizedBox(height: 20),
               Image(
-                image: NetworkImage('img/tituloInimigos.png'),
+                image: AssetImage('img/tituloInimigos.png'),
                 height:80,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 50),
               CarouselSlider(
                 options: CarouselOptions(
-                  height: 400.0,
+                  height: 300.0,
                   enlargeCenterPage: true,
                   autoPlay: true,
                   aspectRatio: 16 / 9,
@@ -103,13 +103,14 @@ class InimigosPageState extends State<InimigosPage> {
                     },
                     child: Image.network(
                       inimigo.imagem,
-                      height: 300,
-                      width: 300,
+                      fit: BoxFit.cover,
+                      height: 100,
+                      width: 350,
                     ),
                   );
                 }).toList(),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 50),
               Container(
                 width: 350,
                 child: Text(
@@ -154,49 +155,52 @@ class DetalhesInimigoPage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage('img/fundo.jpg'),
+                image: AssetImage('img/fundo.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 20),
-                Image(
-                  image: NetworkImage(inimigo.detalhesImagem),
-                  width: 400,
-                  height: 200,
-                ),
-                SizedBox(height: 20),
-                Text(
-                  inimigo.nome,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+          SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 50),
+                  Image(
+                    image: AssetImage(inimigo.detalhesImagem),
+                    fit: BoxFit.fill,
+                    height: 200,
                   ),
-                ),
-                SizedBox(height: 20),
-                Container(
-                  width: 450,
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(146, 0, 0, 0),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Text(
-                    inimigo.descricao,
-                    textAlign: TextAlign.center,
+                  SizedBox(height: 50),
+                  Text(
+                    inimigo.nome,
                     style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
-                ),
-              ],
+                  SizedBox(height: 20),
+                  Container(
+                    width: 450,
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(146, 0, 0, 0),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Text(
+                      inimigo.descricao,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                ],
+              ),
             ),
           ),
         ],
